@@ -1,0 +1,89 @@
+/**********************************************************************************************
+ * Navbar style for theme                                                                     *
+ * ----------------------                                                                     *
+ * Based on http://dbwebb.se/coachen/en-navbar-med-drop-down-meny-i-ren-html-och-css          *
+ **********************************************************************************************/
+ 
+@media (min-width: 533px){
+  .navbar ul { padding: @magicNumber / 3.38; }
+}
+
+@media (max-width: 532px){
+  .navbar ul { padding: @magicNumber / 1.69; }
+}
+ 
+.navbar {
+	font-weight: bold;
+	
+	ul {
+		background: @navbarColor1;
+		.border-radius(5px);
+		list-style: none;
+		margin: 0;
+	
+    li {
+      border-top: 4px solid transparent;
+      color: @navbarColor2;
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      
+      &:hover {
+        background-color: @navbarColor2;
+        .border-radius(5px);
+        color: @navbarColor1;
+      }
+      
+      ul {
+        height: 0;
+        background-color: @navbarColor2;
+        margin: -4px 0 0 -1px;
+        padding: 0;
+        position: absolute;
+        z-index: 2;
+        overflow: hidden;
+        .transition(height .5s ease, border-radius .5s ease, padding .5s ease);
+      }
+      
+      &:hover ul, &:active ul, ul:hover{
+        height: auto;
+        .border-radius(0 5px 5px);
+        border: solid @navbarColor1;
+        border-width: 0 1px 1px;
+        padding: 7px;
+        .transition-delay(0s);
+      }
+      
+      li {
+        border-left: 4px solid transparent;
+        border-top: none;
+        color: @navbarColor1;
+        display: block;
+        
+        &:hover {
+          background-color: @navbarColor1;
+          .border-radius(5px);
+          color: @navbarColor2;
+        }
+        
+        a{
+          .font-size(0.9em);
+          padding: 0 3px 2px;
+        }
+        
+        &.selected { text-decoration: underline; }
+      }
+    }
+  }
+	
+	a {
+		color: inherit;
+		display: block;
+		padding: 0 5px 5px;
+		text-decoration: none;
+		white-space: nowrap;
+		width: 100%;
+	}
+	
+	li.selected-parent, li.selected { text-decoration: underline; }
+}

@@ -1,0 +1,117 @@
+/****************************
+ * Base structure for theme *
+ ****************************/
+
+/**
+ * General elements
+ */
+ 
+html {
+	height: 100%;
+	min-height: 100%;
+	min-width: 100%;
+}
+
+body {
+	height: 100%;
+	min-height: 100%;
+	min-width: 100%;
+	background: @bgBody;
+}
+
+/* Misc */
+.left { float: left; }
+.right { float: right; }
+.clear { clear: both; }
+
+/**
+ * Layout of the main page elements 
+ */
+ 
+#wrapper {
+	min-height: 100%;
+  max-width: @maxWidthBody;
+  margin: 0 auto;
+  border: solid #666;
+  border-width: 0 1px;
+  background: @bgWrapper;
+}
+
+.grid #wrapper{ background: url(../../img/chipla/chipla-grid/grid_12_60_20.png) @bgBody 0px 1px; }
+
+#header,
+#navbar,
+#page-title,
+#flash,
+#footer{
+  .column(@columns);
+}
+
+/**
+ * Layout for header
+ */
+ 
+#header {
+	position: relative;
+}
+
+.sitelogo{
+  margin: -15px 0 0 -7px;
+  vertical-align: text-top;
+}
+
+.sitetitle {
+	display: inline-block;
+}
+
+#navbar{
+  margin-bottom: @magicNumber;
+}
+
+/**
+ * Flash, Featured, main, sidebar, triptych, footer-col and footer layout
+ */
+
+#wrap-featured, #wrap-main, #wrap-triptych, #wrap-footer-col, #wrap-footer {
+  .clearfix();
+}
+ 
+// Layout for main and sidebar
+ 
+#main {
+  .column(@columns / 6 * 4);
+  
+  &.all-columns{
+    .column(@columns);
+  }
+}
+
+#sidebar {
+  .column(@columns / 6 * 2);
+  
+  &.all-columns{
+    .column(@columns);
+  }
+}
+
+#main, #sidebar{
+  min-height: @magicNumber * 14;
+}
+
+// Layout for footer
+
+#wrap-footer{
+  padding-top: @magicNumber - 1px;
+  border-top: 1px solid @borderColorLight;
+  .box-sizing();
+}
+
+// Padding and margin for every base elements in main-space under header 
+
+#flash, #main, #sidebar, #footer,
+#featured-1, #featured-2, #featured-3,
+#triptych-1, #triptych-2, #triptych-3,
+#footer-col-1, #footer-col-2, #footer-col-3, #footer-col-4{
+  margin-bottom: @magicNumber;
+  .box-sizing();
+}

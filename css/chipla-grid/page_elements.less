@@ -1,0 +1,620 @@
+/* Comments */
+#comments{
+	width: @maxWidthBody;
+}
+
+#commentsHeader{
+	margin: @magicNumber 0;
+
+  #commentsHeaderBorder, ul#commentsMenu li { border-bottom: 3px solid @borderColorLight; }
+
+  ul#commentsMenu {
+    clear: none;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    height: @magicNumber - 3;
+    overflow: hidden;
+ 
+    li{
+      padding-bottom: @magicNumber - 3;
+      display: inline-block;
+      z-index: 20;
+      position: relative;
+      font-weight: 600;
+      
+      a{ text-decoration: none; }
+
+      &:hover, &.active{
+        border-color: @colorCommentLink;
+        
+        a { color: @colorCommentLink !important; }
+      }
+    }
+  }
+
+  #login{
+    min-width: (@column-width + 20px) * 3 - 20;
+    float: right;
+    text-align: right;
+    color: #666;
+    .box-sizing();
+
+    .speechBubble{
+      width: @fontSizeBody - 4;
+      height: @fontSizeBody - 4;
+      padding: 0;
+      margin: 0;
+      border: 2px solid @borderColorLight;
+      .border-radius(5px 5px 0 5px);
+      display: inline-block;
+      position: relative;
+      top: 1px;
+      background: darken(@borderColorLight, 35%);
+    }
+   
+    .caret{
+      border-top: 4px solid @borderColorLight;
+      top: 14px;
+    }
+     
+    .caretUp, .caret{
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      position: relative;
+      margin-left: 3px;
+    }
+    
+    &:hover, &.active{
+      color: @colorCommentLink;
+      cursor: pointer;
+    
+      .speechBubble{
+        border-color: @colorCommentLink;
+        background: darken(@colorCommentLink, 15%);
+      }
+      
+      .caret{ border-top-color: @colorCommentLink; }
+    }
+    
+    .caretUp, &.active .caret{
+      border-bottom: 4px solid !important;
+      border-top: 0;
+      top: auto;
+      bottom: 11px;
+    }
+
+    .caretUp{
+      border-bottom-color: #C3C1C1;
+    }
+
+    .caretUp:hover, &.active .caret{
+      border-bottom-color:  @colorCommentLink;
+    }
+  }
+
+  #commentsHeaderBorder{
+    margin: -3px 0 0;
+    padding: 0;
+  }
+
+  #login_undermeny{
+    min-width: (@column-width + 20px) * 3 - 20;
+    border: 2px solid @colorCommentLink;
+    border-top: none;
+    .border-radius(0 0 5px 5px);
+    padding: 5px;
+    display: none;
+    position: absolute;
+    z-index: 99;
+    .box-sizing();
+    background: @bgWrapper;
+    
+    input[type=submit]{
+      margin: (@magicNumber - 14) 0 (@magicNumber - 18);
+    }
+    
+    input[type=text]{
+      width: (@column-width + 20px) * 3 - 20 - 14;
+      margin: @magicNumber / 2 - 4 0;
+      .box-sizing();
+    }
+    
+    ul{
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    
+    li{
+      padding: @magicNumber / 2 - 2.5;
+      .box-sizing();
+    }
+    
+    a:hover{
+      color: @colorCommentLink;
+      text-decoration: none;
+    }
+  }
+}
+
+#form_avatar, .commentAvatar{
+  .column(1);
+  margin-left: 0;
+  height: @magicNumber * 3 - 3;
+	overflow: hidden;
+  
+  .avatar{
+    width: 100%;
+    .border-radius(5px);
+  }
+}
+
+#form_text, .commentText{
+  .column(@columns - 1);
+}
+
+
+#commentForm{
+  .clearfix();
+  padding: ((@magicNumber * 3 - @column-width) / 2) 0 @magicNumber - 3;
+  
+  #form_text{
+    
+    label[for=name]{
+      .font-size(11px);
+      font-weight: 700;
+      margin: 0 0 @magicNumber;
+      text-transform: uppercase;
+    }
+
+    textarea, input.login{
+      border: 2px solid @borderColorLight;
+      .border-radius(5px);
+      padding: 5px;
+      font-size: 0.95em;
+      line-height: 22px;
+      resize: none;
+    }
+
+    textarea{
+      width: 100%;
+      min-height: @column-width * 1px;
+      .box-sizing()
+    }
+
+    input.commentInput{
+      width: (@column-width + 20) * 10px - 20;
+      .box-sizing()
+    }
+    
+    #loginInput{
+      float: right;
+      display: none;
+    }
+
+    #loginInputMore{
+      display: none;
+    }
+
+  }
+}
+
+#comments{
+  padding-bottom: @magicNumber - 3;
+  
+  .comment{
+    width: 100%;
+    padding-top: @magicNumber;
+    .clearfix();
+    
+    .commentAvatar{
+      clear: right;
+    }
+    
+    .commentText{
+      .commentTop, .commentContent, .commentBottom{
+        float: right;
+        width: 100%;
+      }
+      
+      .commentTop, .commentBottom{
+        font-size: 0.8em;
+        line-height: @magicNumber;
+        color: #666;
+      }
+      
+      .commentTop span{ padding-right: 2px; }
+      
+      .commentContent{
+        line-height: @magicNumber;
+        .font-size(0.95em);
+        font-style: normal;
+        font-weight: 400;
+      }
+      
+      .commentBottom{
+        a .voteUp, a .voteDown{
+          .font-size(1em);
+          margin-right: 5px;
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+          position: relative;
+          text-decoration: none;
+        }
+        
+        .voteUp{
+          border-bottom: 6px solid @borderColorLight;
+          bottom: 11px;
+          
+          &:hover{ border-bottom-color: lighter(@borderColorLight, 35%); }
+        }
+
+        .voteDown{
+          border-top: 6px solid @borderColorLight;
+          top: 11px;
+      
+          &:hover{ border-top-color: lighter(@borderColorLight, 35%); }
+        }
+      }
+    }
+  }
+}
+
+.commentsLine{
+  clear: both;
+  border-top: 3px solid @borderColorLight;
+}
+
+/**
+ * CSS for calender-module to Chipla
+ * Made by Rasmus Berg (c) 2014-2016
+ */
+ 
+/* Standard settings */
+.calender h3, .calender h2, .calender h4{
+	padding: 5px 0;
+	margin: 0px;
+}
+
+.calender .days, .calender .weeks, .calender .day, .calender_headers div{
+	float: left;
+}
+
+.calender .calender_headers div{
+	background: @calenderHeaderBg;
+}
+
+.calender .week_header{
+	background: @calenderWeekHeaderBg !important;
+}
+
+.calender .week{
+	background: @calenderWeekBg;
+	color: #666;
+}
+
+.calender .day{
+	background: @calenderDayBg;
+}
+
+.days .redDay{
+	color: @calenderRedDayColor;
+}
+
+.days .weekend{
+	color: @calenderWeekendColor;
+}
+
+.days .today{
+	background: @calenderTodayBg;
+	color: #fff;
+}
+
+.days .notThisMonth{
+	background: @calenderNotThisMonthBg;
+	color: @calenderNotThisMonthColor;
+}
+
+.days .day { width: 14.28% !important; }
+
+/* 
+* Special calender calenders to make your calender unique
+*/
+
+.mini_calender .month_label, .basic_calender .month_label {
+  float: left;
+  background: @calenderMonthLabelBg;
+}
+
+.mini_calender h4, .basic_calender h3{
+  padding: 0;
+  letter-spacing: 1em;
+  text-align: center;
+  word-wrap: break-word;
+  color: @calenderMonthLabelColor;
+  overflow-y: hidden;
+  overflow-x: inherit;
+}
+
+/* Big calender */
+.big_calender .basic_calender{
+	width: 100%;
+  .box-sizing();
+}
+
+@media (min-width: 963px) {
+  #picture_of_month{
+    width: 700px;
+    height: 440px;
+    margin: 0 20px @magicNumber 0;
+    float: left;
+    
+    img{ max-width: 700px; }
+  }
+  
+  .calender_nav { 
+    float: left;
+  }
+  
+  .mini_calender{
+    max-width: 220px;
+  }
+  
+  .last_month{
+    margin-bottom: @magicNumber;
+  }
+  
+  .basic_calender{
+    .month_label{ width: 3.23%; }
+    .calender_headers div{ width: 12.9%; }
+    .week_header, .weeks{ width: 6.47% !important; }
+    .days{ width: 90.3%; }
+    
+    .calender .day, .calender_headers div, .calender .week{
+      @media (min-width: 891px){
+        padding: 5px;
+      }
+      @media (max-width: 890px){
+        padding: 5px 2.5px;
+      }
+    }
+  }
+}
+  
+@media (max-width: 962px) {
+  #picture_of_month{
+    width: 100%;
+    margin-bottom: @magicNumber;
+  }
+  
+  .calender_nav{ 
+    width: 100%;
+    margin-bottom: @magicNumber;
+  }
+  
+  .next_month, .last_month {
+    float: left;
+    width: 50%;
+    .box-sizing();
+  }
+  
+  .last_month {
+    padding-right: 20px;
+  }
+  
+  .big-screen{ display: none; }
+  
+  .basic_calender{
+    .month_label{ float: none; }
+    .calender_headers div{ width: 13.14%; }
+    .week_header, .weeks{ width: 8% !important; }
+    .days{ width: 92%; }
+    
+    .calender .day, .calender_headers div, .calender .week{
+      @media (min-width: 891px){
+        padding: 5px;
+      }
+      @media (max-width: 890px){
+        padding: 5px 2.5px;
+      }
+    }
+  }
+}
+
+//.responsive-grid(35px, @magicNumber, 20, 716px, 432px, ~"#picture_of_month");
+
+#picture_of_month {
+  @media (max-width: 962px) and (min-width: 933px) {
+    height: @magicNumber * 27;
+  }
+  @media (max-width: 932px) and (min-width: 897px) {
+    height: @magicNumber * 26;
+  }
+  @media (max-width: 896px) and (min-width: 861px) {
+    height: @magicNumber * 25;
+  }
+  @media (max-width: 860px) and (min-width: 825px) {
+    height: @magicNumber * 24;
+  }
+  @media (max-width: 824px) and (min-width: 789px) {
+    height: @magicNumber * 23;
+  }
+  @media (max-width: 788px) and (min-width: 753px) {
+    height: @magicNumber * 22;
+  }
+  @media (max-width: 752px) and (min-width: 718px) {
+    height: @magicNumber * 21;
+  }
+  @media (max-width: 717px) and (min-width: 682px) {
+    height: @magicNumber * 20;
+  }
+  @media (max-width: 681px) and (min-width: 646px) {
+    height: @magicNumber * 19;
+  }
+  @media (max-width: 645px) and (min-width: 610px) {
+    height: @magicNumber * 18;
+  }
+  @media (max-width: 609px) and (min-width: 575px) {
+    height: @magicNumber * 17;
+  }
+  @media (max-width: 574px) and (min-width: 539px) {
+    height: @magicNumber * 16;
+  }
+  @media (max-width: 538px) and (min-width: 503px) {
+    height: @magicNumber * 15;
+  }
+  @media (max-width: 502px) and (min-width: 467px) {
+    height: @magicNumber * 14;
+  }
+  @media (max-width: 466px) and (min-width: 432px) {
+    height: @magicNumber * 13;
+  }
+  @media (max-width: 431px) {
+    max-height: @magicNumber * 12;
+  }
+}
+
+@media (max-width: 478px){
+  .last_month, .next_month {
+    width: 100%;
+  }
+  
+  .last_month { padding: 0 0 @magicNumber; }
+}
+
+#picture_of_month{
+  padding: 0;
+  
+  img{
+    width: 100%;
+    .border-radius(5px);
+  }
+}
+
+.calender_nav { overflow: hidden; }
+
+/* Basic calender */
+.basic_calender{
+  
+  .month_label{
+    padding: 11px 7.1px;
+    .box-sizing();
+  }
+  
+  h3{ .font-size(21px); }
+  
+  .calender .day, .calender_headers div, .calender .week{
+    padding: 5px;
+  }
+  
+  .calender_headers strong{ display: none; }
+  
+  .calender_headers div{
+    height: @magicNumber * 2;
+    .box-sizing();
+  }
+
+  .day, .week{
+    height: @magicNumber * 3;
+    .box-sizing();
+  }
+  
+  .week{
+    width: 100%;
+    .font-size(35px);
+    text-align: center;
+  }
+  
+  @media (min-width: 800px){
+    h4 { .font-size(20px); }
+  }
+  @media (max-width: 799px) {
+    h4 { .font-size(18px); }
+  }
+  @media (max-width: 729px){
+    h4 { .font-size(16px); }
+  }
+  @media (max-width: 629px){
+    h4 { display: none; }
+    .calender_headers strong { display: inline; }
+    .week { .font-size(30px);  }
+  }
+  @media (max-width: 529px){
+    .week { .font-size(25px);  }
+  }
+  @media (max-width: 429px){
+    .week { .font-size(16px);  }
+  }
+  
+}
+
+/* Mini calender */
+.mini_calender{
+  width: 100%;
+  
+  .month_label, .weeks, .calender_headers div { width: 11.11%; }
+  
+  .month_label{
+    min-height: @magicNumber * 6; // Five letters height + padding
+    padding: (@magicNumber / 2) 4.3px;
+    overflow: hidden;
+    .box-sizing();
+  
+    h4{
+      max-height: @magicNumber * 5; // Five letters height
+      padding: 0;
+    }
+  }
+  
+  .calender_headers h4 { display: none; }
+  
+  .calender_headers div, .week, .day{
+    padding: 0 2.5px;
+    text-align: center;
+    overflow: hidden;
+    .box-sizing();
+  }
+  
+  .weeks, .calender_headers div{ height: @magicNumber; }
+  
+  .week { width: 100%;  }
+  
+  .days { width: 77.77%;}
+}
+
+/**
+ * CSS sprite for a dice with six faces.
+ */
+
+.dices(@count: 6, @height: 0, @width: 0) /*when(@count > 0)*/{
+  li.dice-@{count} { background-position: @height @width; }
+  
+  //.dices(@count - 1, @height + @dicesDiffHeight, @width + @dicesDiffWidth);
+}
+ 
+ul.dice {
+  height: @magicNumber * 3;
+  margin: 0 0 @magicNumber;
+  padding: 0;
+  list-style: none;
+}
+ 
+ul.dice li {
+  width: @dicesWidth;
+  height: @dicesHeight;
+  margin-top: ((@magicNumber * 3 - @dicesHeight) / 2);
+  margin-right: 4px;
+  display: inline-block;
+  background: @dicesBg;
+  .box-sizing();
+}
+ 
+ul.dice {
+  .dices(1,  -64px,   0px);
+  .dices(2, -128px,   0px);
+  .dices(3,  -64px, -64px);
+  .dices(4, -128px, -64px);
+  .dices(5,   0px,  -64px);
+  .dices(6,   0px,    0px);
+}

@@ -1,0 +1,61 @@
+figure {
+	margin-bottom: 22px;
+	margin: 0;
+	
+	img {
+		display: block;
+		max-width: 100%;
+	}
+	
+	figcaption {
+		font-style: italic;
+		padding-top: 1em;
+		
+		p { margin-bottom: 0;}
+	}
+}
+
+figure.figure {
+	display: table;
+	padding: 0;
+
+	td img { max-width: none; }
+	
+	figcaption {
+		caption-side: bottom;
+		display: table-caption;
+		padding: 0;
+	}
+}
+
+figure.left {
+	float: left;
+	font-size: 0.875em;
+	margin-right: 1em;
+}
+
+figure.right {
+	float: right;
+	font-size: 0.875em;
+	margin-left: 1em;
+}
+
+figure.center {
+	clear: both;
+	img {
+		margin: 0 auto;
+	}
+	figcaption {
+		text-align: center;
+	}
+}
+
+figure.border {
+	border: 10px solid #000000;
+}
+
+figure.rounded {
+	img {
+		.border-radius(50px);
+	}
+}
