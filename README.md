@@ -48,13 +48,13 @@ How to use the theme:
 
 ### For CHIPLA MVC or Anax-MVC
 
-Add every path to webroot, skip the single files index.html, readme.md etc.
+Add everything server/project root, except all single files under root (readme.md, license etc) and webroot (index.html, favicon.png etc.)
 Also follow instruction to get lessphp to work.
 
 ### For standalone version
 
-If you use php in your page it's only to add everything to webroot, otherwish you need to change line 7 in index.html from style.php to style.css.
-Also follow instruction to get lessphp to work if you php in your project.
+If you use php for your project it's only to add everything from webroot path to your webroot path, otherwish you need to change line 7 in index.html from style.php to style.css.
+Also follow instruction to get lessphp to work if you use php in your project.
 
 ### How to get lessphp to work
 
@@ -62,6 +62,12 @@ Set (writable) CMOD 777 on path 'css/chipla-grid/'.
  
 History
 -------
+
+### v0.1.1 (2016-09-09)
+
+ * Add missing path's and files for Anax MVC / Chipla-MVC.
+ 
+ * Readme: Correction in install instructions.
 
 ### v0.1.0 (2016-09-02)
 
