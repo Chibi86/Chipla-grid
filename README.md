@@ -46,8 +46,8 @@ The following external modules are included and subject to its own license.
  * License: MIT LICENSE
  * File: `css/chipla-grid/normalize.less`
 
-How to use the theme:
----------------------
+How to use this theme:
+----------------------
 
 ### For CHIPLA MVC or Anax-MVC
 
