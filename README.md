@@ -1,5 +1,8 @@
-Responsive-less-theme
-=======================
+Chipla-grid
+===========
+
+A Responsive-less-theme
+-----------------------
 
 A responsive standalone less theme for Anax-MVC or Chipla-MVC, but you can use as a standalone theme.
 
@@ -48,7 +51,11 @@ How to use the theme:
 
 ### For CHIPLA MVC or Anax-MVC
 
-Add everything server/project root, except all single files under root (readme.md, license etc) and webroot (index.html, favicon.png etc.)
+Add everything to server/project root, except all single files under root (readme.md, license etc) and webroot (index.html, favicon.png etc.)
+
+For adding theme as using theme you need to change to "chipla-grid" as theme name settings, you find it under 'app/config/' and file you us as theme config-file at start "theme.php" can also be "theme-me.php" or "theme-grid.php".
+If you don't know which one check in 'webroot/index.php', should be somewhere in top of that file.
+
 Also follow instruction to get lessphp to work.
 
 ### For standalone version
