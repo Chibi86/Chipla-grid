@@ -54,7 +54,7 @@ How to use this theme:
 Add everything to server/project root, except all single files under root (readme.md, license etc) and webroot (index.html, favicon.png etc.)
 
 For adding theme as using theme you need to change to "chipla-grid" as theme name settings, you find it under 'app/config/' and file you us as theme config-file at start "theme.php" can also be "theme-me.php" or "theme-grid.php".
-If you don't know which one check in 'webroot/index.php', should be somewhere in top of that file.
+If you don't know which one check in `webroot/index.php`, should be somewhere in top of that file.
 
 Also follow instruction to get lessphp to work.
 
@@ -95,3 +95,7 @@ History
 ### v0.1.0 (2016-09-02)
 
  * First stable version
+ 
+```
+Copyright (c) 2016 Rasmus Berg, rasmus.berg@chibidesign.se
+```
