@@ -65,7 +65,7 @@ Also follow instruction to get lessphp to work if you use php in your project.
 
 ### How to get lessphp to work
 
-Set (writable) CMOD 777 on path `css/chipla-grid/`.
+Set (writable) CMOD 777 on path 'css/chipla-grid/'.
  
 History
 -------
@@ -82,7 +82,7 @@ History
  
  * Add content, page and blog pages layout
  
- * Add layout for flashmessages use for [Flashmessages-AnaxMVC](https://github.com/davedoff/Flashmessages-AnaxMVC)
+ * Add layout for flashmessages use for !(https://github.com/davedoff/Flashmessages-AnaxMVC)[Flashmessages-AnaxMVC]
  
  * Much more...
 
