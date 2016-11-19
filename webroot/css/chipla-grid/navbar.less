@@ -13,7 +13,6 @@
 }
  
 .navbar {
-	font-weight: bold;
 	
 	ul {
 		background: @navbarColor1;
@@ -22,11 +21,22 @@
 		margin: 0;
 	
     li {
-      border-top: 4px solid transparent;
       color: @navbarColor2;
       display: inline-block;
       position: relative;
       cursor: pointer;
+      
+      &.selected-parent, &.selected { 
+        border-bottom: 2px solid @navbarColor2;
+        
+        a { padding-bottom: 3px; }
+      }
+      
+      .fa{
+        margin-right: 5px;
+        font-size: 14px;
+        vertical-align: text-top;
+      }
       
       &:hover {
         background-color: @navbarColor2;
@@ -37,7 +47,7 @@
       ul {
         height: 0;
         background-color: @navbarColor2;
-        margin: -4px 0 0 -1px;
+        margin: -4px 0 0 -0.85px;
         padding: 0;
         position: absolute;
         z-index: 2;
@@ -55,8 +65,7 @@
       }
       
       li {
-        border-left: 4px solid transparent;
-        border-top: none;
+        border: none;
         color: @navbarColor1;
         display: block;
         
@@ -66,12 +75,15 @@
           color: @navbarColor2;
         }
         
-        a{
+        a, &.selected a{
           .font-size(0.9em);
-          padding: 0 3px 2px;
+          padding: 0 3px 2px !important;
         }
         
-        &.selected { text-decoration: underline; }
+        &.selected {
+          border: none;
+          text-decoration: underline;
+        }
       }
     }
   }
@@ -79,11 +91,9 @@
 	a {
 		color: inherit;
 		display: block;
-		padding: 0 5px 5px;
+		padding: 4px 5px 5px;
 		text-decoration: none;
 		white-space: nowrap;
 		width: 100%;
 	}
-	
-	li.selected-parent, li.selected { text-decoration: underline; }
 }

@@ -1,0 +1,87 @@
+/******************************
+ * Base form styles for theme *
+ ******************************/
+fieldset{
+  margin: 0 0 @magicNumber;
+  padding: (@magicNumber - 1) (@gutter-width * 1px - 1);
+  .box-sizing();
+}
+
+label{
+  .font-size(14px);
+}
+
+input[type=text], input[type=number], input[type=email], input[type=password]{
+  width: (@column-width * 4) + (@gutter-width * 2) * 1px;
+  height: @magicNumber + 6px;
+  margin: ((@magicNumber - 6px) / 2) 0;
+  border: 1px solid @input-border;
+}
+
+input[type=checkbox]{
+  border: 1px solid @input-border;
+}
+
+textarea{
+  width: (@column-width * 7) + (@gutter-width * 5) * 1px;
+  height: @magicNumber * 5 + 5px;
+  margin: ((@magicNumber - 6px) / 2) 0;
+  border: 1px solid @input-border;
+}
+
+input, textarea{
+  .box-sizing();
+  
+  &.validation-failed {
+    box-shadow: 0 0 1.5px 1px @validation-failed-box-shadow;
+  }
+}
+
+input[type=button], input[type=submit]{
+  height: (@magicNumber * 2 - 12);
+  margin: 6px 0;
+  border: 3px solid @btnBorder;
+  .border-radius(5px);
+  background: @btnBg;
+  color: @btnColor;
+  
+  &:hover{
+    background: @btnBgHover;
+    border-color: @btnBorderHover;
+    color: @btnColorHover;
+  }
+  &:active{
+    background: @btnBgActive;
+    border-color: @btnBorderActive;
+    color: @btnColorActive;
+  }
+}
+
+p.buttonbar{
+  margin-bottom: 0;
+}
+
+ul.validation-message {
+  width: (@column-width * 4) + (@gutter-width * 2) * 1px;
+  padding: (@magicNumber / 2 - 1.5) @magicNumber / 4;
+  margin: 0;
+  border: 2px solid @validation-message-border;
+  .border-radius(5px);
+  .box-sizing();
+  list-style-type: none;
+  background: @validation-message-bg;
+  
+  li{
+    width: (@column-width * 4) + (@gutter-width * 2) * 1px;
+    
+    &:before{
+      font-size: 0.9em;
+      margin: 0;
+      margin-right: 11px;
+      margin-left: 5px;
+      padding: 0;
+      content: "\f06a";
+      font-family: FontAwesome;
+    }
+  }
+}

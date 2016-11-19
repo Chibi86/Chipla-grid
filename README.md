@@ -24,9 +24,9 @@ The following external modules are included and subject to its own license.
  
 ### Font Awesome
  * Website: http://fontawesome.io/
- * Version included: 4.6.3 (2016-05-13)
+ * Version included: 4.7 (2016-10-24)
  * License: SIL OFL 1.1 and MIT LICENSE
- * Path: `css/chipla-grid/font-awesome-4.6.3` and 'fonts'
+ * Path: `css/chipla-grid/font-awesome` and 'fonts'
 
 ### Lydia
  * Website: https://github.com/mosbth/lydia
@@ -65,10 +65,26 @@ Also follow instruction to get lessphp to work if you use php in your project.
 
 ### How to get lessphp to work
 
-Set (writable) CMOD 777 on path 'css/chipla-grid/'.
+Set (writable) CMOD 777 on path `css/chipla-grid/`.
  
 History
 -------
+
+### v0.2.0 (2016-11-19)
+
+ * Update Font Awesome from v4.6.3 to v4.7
+ 
+ * Add form-layout
+ 
+ * Change comment to more follow the same form-layout that rest of the page
+ 
+ * Add user pages layout
+ 
+ * Add content, page and blog pages layout
+ 
+ * Add layout for flashmessages use for [Flashmessages-AnaxMVC](https://github.com/davedoff/Flashmessages-AnaxMVC)
+ 
+ * Much more...
 
 ### v0.1.1 (2016-09-09)
 
