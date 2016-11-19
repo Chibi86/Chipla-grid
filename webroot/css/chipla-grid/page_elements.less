@@ -4,11 +4,8 @@
 }
 
 #commentsHeader{
-  height: @magicNumber * 2;
-	margin-top: @magicNumber;
-  padding-bottom: @magicNumber / 2;
-  .box-sizing();
-  
+	margin: @magicNumber 0;
+
   #commentsHeaderBorder, ul#commentsMenu li { border-bottom: 3px solid @borderColorLight; }
 
   ul#commentsMenu {
@@ -16,14 +13,15 @@
     display: inline;
     margin: 0;
     padding: 0;
+    height: @magicNumber - 3;
     overflow: hidden;
  
     li{
-      height: @magicNumber * 1.5;
-      padding-bottom: @magicNumber / 2;
+      padding-bottom: @magicNumber - 3;
       display: inline-block;
+      z-index: 20;
+      position: relative;
       font-weight: 600;
-      .box-sizing();
       
       a{ text-decoration: none; }
 
@@ -35,7 +33,7 @@
     }
   }
 
-  #commentMenu{
+  #login{
     min-width: (@column-width + 20px) * 3 - 20;
     float: right;
     text-align: right;
@@ -100,7 +98,7 @@
     padding: 0;
   }
 
-  #commentUnderMenu{
+  #login_undermeny{
     min-width: (@column-width + 20px) * 3 - 20;
     border: 2px solid @colorCommentLink;
     border-top: none;
@@ -159,23 +157,44 @@
 
 #commentForm{
   .clearfix();
+  padding: ((@magicNumber * 3 - @column-width) / 2) 0 @magicNumber - 3;
   
   #form_text{
     
-    p.cf-desc {
-      margin: 0;
+    label[for=name]{
+      .font-size(11px);
+      font-weight: 700;
+      margin: 0 0 @magicNumber;
+      text-transform: uppercase;
     }
-    
-    br, label, .writer-name, .writer-input { display: none; }
-    
-    textarea{
-      width: 100%;
-      height: @magicNumber * 4;
+
+    textarea, input.login{
+      border: 2px solid @borderColorLight;
+      .border-radius(5px);
       padding: 5px;
-      margin: 0;
       font-size: 0.95em;
       line-height: 22px;
-      .box-sizing();
+      resize: none;
+    }
+
+    textarea{
+      width: 100%;
+      min-height: @column-width * 1px;
+      .box-sizing()
+    }
+
+    input.commentInput{
+      width: (@column-width + 20) * 10px - 20;
+      .box-sizing()
+    }
+    
+    #loginInput{
+      float: right;
+      display: none;
+    }
+
+    #loginInputMore{
+      display: none;
     }
 
   }
@@ -598,201 +617,4 @@ ul.dice {
   .dices(4, -128px, -64px);
   .dices(5,   0px,  -64px);
   .dices(6,   0px,    0px);
-}
-
-/**
- * Users sidebar
- */
-.users-sidebar{
-  border: 2px solid @borderColorLight;
-  padding: @magicNumber - 2;
-  
-  ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    
-    li:before{
-      content: "\f178";
-      opacity: 0;
-      font-family: FontAwesome;
-      font-size: 0.9em;
-      margin-right: 5px;
-      padding: 0;
-    }
-    
-    li:hover:before{ opacity: 10; }
-    li.no-hover:hover:before{ opacity: 0; }
-  }
-}
-
-/**
- * User profile
- */
-.users_profile{
-  width: 100%;
-  padding: @magicNumber / 2;
-  //margin: @magicNumber / 2;
-  border: 1px solid @borderColorLight;
-  .box-sizing();
-  
-  .users_profile_info{
-    font-size: 14px;
-    line-height: @magicNumber;
-    display: inline-block;
-    padding: @magicNumber / 2 @magicNumber / 2 @magicNumber / 2 (@column-width - @gutter-width + 6px);
-  }
-
-  .users_profile_avatar{
-    width: ((@column-width + @gutter-width) * 2) - 6px;
-    height: @magicNumber * 7;
-    padding: (@magicNumber / 2);
-    border: 1px solid @borderColorLight;
-    display: inline-block;
-    vertical-align: top;
-  }
-}
-
-/**
- * Users & content list
- */
-.users-list, .content-list{
-  width: 100%;
-  border-spacing: 0;
-  border-collapse: separate;
-  
-  th{
-    text-align: left;
-    border-bottom: 2px solid @borderColorLight;
-    line-height: @magicNumber - 2px;
-  }
-  
-  td{
-    padding: 0 (@gutter-width * 1px) 0 0;
-    
-    a.fa { text-decoration: none; }
-  }
-}
-
-/**
- * Content edit, add & list filter-form
- */
-.form-element-filters p:not(:first-of-type):not(.cf-desc),
-.content-list-filter p{
-  display: inline-block;
-  margin: 0 5px;
-}
-
-/**
- * Blog-posts
- */
-.blog-post {
-  header {
-    border-bottom: 1px solid @borderColorLight;
-    margin-bottom: @magicNumber - 1px;
-    
-    h2 {
-      margin-bottom: 0;
-      font-weight: 600;
-      
-      a { text-decoration: none; }
-    }
-  }
-  
-  section{
-    margin-bottom: @magicNumber;
-    
-    &.ingress { font-style: italic; }
-  }
-  
-  .tags {
-    padding: 0;
-    margin: 0;
-    list-style: outside none none;
-    overflow: hidden;
-    
-    li {
-      float: left;
-      
-      .tag {
-        background: @borderColorLight;
-        .border-radius(3px 0 0 3px);
-        display: inline-block;
-        height: 26px;
-        line-height: 26px;
-        margin: 9px 10px 9px 0;
-        padding: 0 20px 0 23px;
-        position: relative;
-        text-decoration: none;
-        transition: color 0.2s ease 0s;
-        
-        &:before{
-          background: #ffffff;
-          .border-radius(10px);
-          box-shadow: 0 1px hsla(0, 0%, 0%, 0.25) inset;
-          content: "";
-          height: 6px;
-          left: 10px;
-          position: absolute;
-          top: 10px;
-          width: 6px;
-        }
-        
-        &:after{
-          background: #ffffff;
-          border-bottom: 13px solid transparent;
-          border-left: 10px solid @borderColorLight;
-          border-top: 13px solid transparent;
-          content: "";
-          position: absolute;
-          right: 0;
-          top: 0;
-        }
-      }
-    }
-  }
-}
-
-footer.bloglinks{
-  padding-top: @magicNumber;
-}
-
-/**
- * Content page
- */
- 
-.page-content{
-  section{
-    margin-bottom: @magicNumber;
-    
-    &.ingress{
-      line-height: @magicNumber;
-      font-size: 18px;
-      font-weight: 600;
-      font-style: italic;
-    }
-  }
-}
-
-.page-footer{
-  margin: (@magicNumber / 2) 0;
-  padding: (@magicNumber / 2 - 1) 5px;
-  border: 1px solid @borderColorLight;
-  background-color: @bgLight;
-  .border-radius(2px);
-}
-
-/**
- * Admin, moderator or user action that needs to be confirm (and sometimes verification)
- */
-.confirm-action{
-  padding: @magicNumber - 1;
-  text-align: center;
-  border: 1px solid @borderColorLight;
-  
-  fieldset{
-    padding: 0;
-    margin: 0;
-    border: none;
-  }
 }
