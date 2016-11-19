@@ -132,8 +132,8 @@ p code,
 td > code {
   line-height: 1;
   white-space: nowrap;
-  border: 1px solid #ccc;
-  background-color: #f6f6f6;
+  border: 1px solid @borderColorLight;
+  background-color: @bgLight;
   padding: 0 0.2em;
   .border-radius(2px);
   .box-sizing();
@@ -369,3 +369,42 @@ hr {
 		margin-top: 0;
 	}
 }
+
+.online { color: @colorOnline; }
+.offline { color: @colorOffline; }
+
+//
+//  Stylesheet for messages
+//
+
+.flashmessage {
+  text-align: center;
+  
+  h4 {
+    padding: (@magicNumber / 2) 6px (@magicNumber / 2 - 1px);
+    .border-radius(2px 2px 0 0);
+    border-bottom: solid 1px;
+    color: #fff !important;
+  }
+}
+
+.flashmessageClasses(@class, @bg, @bgBorderColor, @textColor) {
+  .flashmessage-@{class}, .flashmessage-@{class} h4 {
+    background: @bg;
+    border-color: @bgBorderColor;
+    color: @textColor;
+  }
+  
+  .flashmessage-@{class} h4{ background: @bgBorderColor; }
+}
+
+// Info
+.flashmessageClasses(info, #D5EDF8, #92CAE4, #205791);
+// Notice
+.flashmessageClasses(notice, #FFF6BF, #F7C925, #514721);
+// Error
+.flashmessageClasses(error, #FBE3E4, #FBC2C4, #8A1F11);
+// Warning
+.flashmessageClasses(warning, #ffbeba, #f77e82, #A53748);
+// Success
+.flashmessageClasses(success, #E6EFC2, #C6D880, #264409);
