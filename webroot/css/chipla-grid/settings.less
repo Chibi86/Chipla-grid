@@ -23,11 +23,11 @@
 @magicNumber:                   @fontSizeBody * 1.375;
 
 // Font sizes
-@fontSizeH1:                    2.375em;
-@fontSizeH2:                    1.875em;
-@fontSizeH3:                    1.375em;
-@fontSizeH4:                    1.25em;
-@fontSizeH5:                    1em;
+@fontSizeH1:                    1.375em;
+@fontSizeH2:                    1.25em;
+@fontSizeH3:                    1.1875em;
+@fontSizeH4:                    1.125em;
+@fontSizeH5:                    1.0625em;
 @fontSizeH6:                    1em;
 
 @fontSizeSmall:                 0.875em;
@@ -45,12 +45,36 @@
 //@gridsystem-width:            (@column-width*@columns) + (@gutter-width*@columns) * 1px;
 @total-width:                   100%;
 
-// Color variables
+// Breadcrumb numbers
+@bread-height:                  @magicNumber * 2;
+@bread-li-height:               @magicNumber;
+@bread-li-topbot-padd:          5px;
+
+/**
+ * Color variables
+ */
+
+// Sitetitle colors 
 @siteTitleColor:                #4481b2;
 @siteSloganColor:               #666666;
 
+// Navbar colors
 @navbarColor1:                  @siteTitleColor;
 @navbarColor2:                  #ffffff;
+@usermenuColor1:                lighten(@siteTitleColor, 10%);
+@usermenuColor2:                @navbarColor2;
+
+// Breadcrumb colors
+@bread-color:                   white;
+@bread-last-color:              @colorBody;
+@bread-start-color:             @siteTitleColor;
+
+// Paging colors
+@paging-color:                  white;
+@paging-bg:                     @usermenuColor1;
+@paging-bg-active:              @navbarColor1;
+@paging-bg-hover:               lighten(@siteTitleColor, 5%);
+@paging-border:                 @navbarColor1;
 
 @color1:                        #444444;
 @colorLighter:                  #666666;
@@ -58,12 +82,18 @@
 @colorBodyMark:                 @colorBody;
 @colorSearchUrl:                #009933;
 
+// User online / offline colors
 @colorOnline:                   #00aa00;
 @colorOffline:                  #DE0017;
 
 @colorTableRowHover:            #222222;
 
 @colorCommentLink:              #4481B2;
+
+@markAnswerColor:               green;
+@pinnedColor:                   #d30202;
+@lockedColor:                   #d8c304;
+@removedColor:                  @linkColor;
 
 @linkColorAnonymous:            @colorBody;
 @linkColorAnonymousHover:       #00c00c;
@@ -89,14 +119,21 @@
 
 @bgTableStripe:                 @bgLight;
 
-@input-border:                  @siteTitleColor;
+@inputDisabledBg:               #bbbbbb;
+
+@inputBorder:                   @siteTitleColor;
+@inputDisabledBorder:           lighten(@colorLighter, 10%);
 
 @btnBg:                         @siteTitleColor;
 @btnBgHover:                    @btnBg;
 @btnBgActive:                   @btnBg;
+@btnDisabledBg:                 @colorLighter;
+
 @btnBorder:                     @btnBg;
 @btnBorderHover:                darken(@btnBg, 10%);
 @btnBorderActive:               lighten(@btnBg, 10%);
+@btnDisabledBorder:             @inputDisabledBorder;
+
 @btnColor:                      @navbarColor2;
 @btnColorHover:                 @btnColor;
 @btnColorActive:                @btnColor;
@@ -105,12 +142,23 @@
 @validation-message-border:     rgba(200, 0, 0, 0.65);
 @validation-message-bg:         #FFBEBC;
 
-// Font awesome
+@tagColor:                      #ffffff;
+@tagHoverBg:                    @siteTitleColor;
+@tagBg:                         lighten(@tagHoverBg, 10%);
+
+/** 
+ * Font awesome
+ */
+ 
 @fa-font-path:                  "../../fonts";
 @fa-font-size-base:             14px;
 @fa-line-height-base:           1.2;
 @fa-border-color:               #eee;
 @fa-inverse:                    #fff;
+
+/**
+ * Page elements
+ */
 
 // Calender
 @calenderMonthLabelBg:          @siteTitleColor;
@@ -126,6 +174,6 @@
 @calenderNotThisMonthColor:     #777777;
 
 // Dices
-@dicesBg:                       url(../../img/dice-faces-blue.png) no-repeat;
+@dicesBg:                       url(../../img/dices/dice-faces-blue.png) no-repeat;
 @dicesHeight:                   64px;
 @dicesWidth:                    64px;

@@ -1,9 +1,128 @@
-/* Comments */
-#comments{
-	width: @maxWidthBody;
+/**
+ * CSS for both comment and forum-module to Chipla
+ * Made by Rasmus Berg (c) 2015-2017
+ */
+#form_avatar, .commentAvatar, .postAvatar {
+  max-height: @magicNumber * 3;
+	overflow: hidden;
+  
+  .avatar { 
+    width: 100%;
+    max-width: @magicNumber * 3 - 6px;
+    vertical-align: top;
+  }
 }
 
-#commentsHeader{
+#form_avatar, .commentAvatar, #thread .postAvatar {
+  .column(1);
+  margin-left: 0;
+  float: left;
+}
+
+#form_text, .commentText, .postText {
+  .column(@columns - 1);
+}
+
+#postForm, #commentForm {
+  .clearfix();
+  
+  #form_text {
+    p.cf-desc { margin: 0; }
+    
+    .writer-name, .writer-input { display: none; }
+    
+    textarea{
+      width: 100%;
+      padding: 5px;
+      margin: 0;
+      font-size: 0.95em;
+      line-height: 22px;
+      .box-sizing();
+    }
+  }
+}
+
+.posts .post, #comments .comment {
+  width: 100%;
+  .clearfix();
+ 
+  .commentTop, .commentContent, .commentBottom,
+  .postTop, .postContent, .postBottom
+  {
+    float: right;
+    width: 100%;
+  }
+  
+  .commentTop, .commentBottom,
+  .postTop, .postBottom
+  {
+    font-size: 0.8em;
+    line-height: @magicNumber;
+    color: @colorLighter;
+  }
+  
+  .commentTop span, .postTop span { padding-right: 2px; }
+  
+  .commentContent, .postComment {
+    line-height: @magicNumber;
+    .font-size(0.95em);
+    font-style: normal;
+    font-weight: 400;
+  }
+}
+
+a .voteUp, a .voteDown {
+  .font-size(1em);
+  margin-right: 5px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  position: relative;
+  text-decoration: none;
+}
+
+.voteUp {
+  border-bottom: 6px solid @borderColorLight;
+  bottom: 11px;
+  
+  &:hover { border-bottom-color: lighter(@borderColorLight, 35%); }
+}
+
+.voteDown {
+  border-top: 6px solid @borderColorLight;
+  top: 11px;
+
+  &:hover { border-top-color: lighter(@borderColorLight, 35%); }
+}
+
+.markAnswer {
+  width: 100%;
+  height: @magicNumber;
+  display: inline-block;
+  color: @markAnswerColor;
+  
+  .fa { 
+    font-size: 1.5em;
+    line-height: @magicNumber;
+  }
+  
+  .markAnswerText {
+    height: 22px;
+    width: 35px;
+    font-size: 0.7em;
+    line-height: 0.7em;
+    display: inline-block;
+    overflow: hidden;
+  }
+}
+
+/**
+ * CSS for comment-module to Chipla
+ * Made by Rasmus Berg (c) 2015-2016
+ */
+ 
+#comments { width: @maxWidthBody; }
+
+#commentsHeader {
   height: @magicNumber * 2;
 	margin-top: @magicNumber;
   padding-bottom: @magicNumber / 2;
@@ -18,7 +137,7 @@
     padding: 0;
     overflow: hidden;
  
-    li{
+    li {
       height: @magicNumber * 1.5;
       padding-bottom: @magicNumber / 2;
       display: inline-block;
@@ -35,7 +154,7 @@
     }
   }
 
-  #commentMenu{
+  #commentMenu {
     min-width: (@column-width + 20px) * 3 - 20;
     float: right;
     text-align: right;
@@ -90,17 +209,17 @@
       border-bottom-color: #C3C1C1;
     }
 
-    .caretUp:hover, &.active .caret{
+    .caretUp:hover, &.active .caret {
       border-bottom-color:  @colorCommentLink;
     }
   }
 
-  #commentsHeaderBorder{
+  #commentsHeaderBorder {
     margin: -3px 0 0;
     padding: 0;
   }
 
-  #commentUnderMenu{
+  #commentUnderMenu {
     min-width: (@column-width + 20px) * 3 - 20;
     border: 2px solid @colorCommentLink;
     border-top: none;
@@ -140,106 +259,14 @@
   }
 }
 
-#form_avatar, .commentAvatar{
-  .column(1);
-  margin-left: 0;
-  height: @magicNumber * 3 - 3;
-	overflow: hidden;
-  
-  .avatar{
-    width: 100%;
-    .border-radius(5px);
-  }
+#commentForm #form_text textarea { 
+  height: @magicNumber * 4;
 }
 
-#form_text, .commentText{
-  .column(@columns - 1);
-}
-
-
-#commentForm{
-  .clearfix();
-  
-  #form_text{
-    
-    p.cf-desc {
-      margin: 0;
-    }
-    
-    br, label, .writer-name, .writer-input { display: none; }
-    
-    textarea{
-      width: 100%;
-      height: @magicNumber * 4;
-      padding: 5px;
-      margin: 0;
-      font-size: 0.95em;
-      line-height: 22px;
-      .box-sizing();
-    }
-
-  }
-}
-
-#comments{
+#comments {
   padding-bottom: @magicNumber - 3;
   
-  .comment{
-    width: 100%;
-    padding-top: @magicNumber;
-    .clearfix();
-    
-    .commentAvatar{
-      clear: right;
-    }
-    
-    .commentText{
-      .commentTop, .commentContent, .commentBottom{
-        float: right;
-        width: 100%;
-      }
-      
-      .commentTop, .commentBottom{
-        font-size: 0.8em;
-        line-height: @magicNumber;
-        color: #666;
-      }
-      
-      .commentTop span{ padding-right: 2px; }
-      
-      .commentContent{
-        line-height: @magicNumber;
-        .font-size(0.95em);
-        font-style: normal;
-        font-weight: 400;
-      }
-      
-      .commentBottom{
-        a .voteUp, a .voteDown{
-          .font-size(1em);
-          margin-right: 5px;
-          border-left: 6px solid transparent;
-          border-right: 6px solid transparent;
-          position: relative;
-          text-decoration: none;
-        }
-        
-        .voteUp{
-          border-bottom: 6px solid @borderColorLight;
-          bottom: 11px;
-          
-          &:hover{ border-bottom-color: lighter(@borderColorLight, 35%); }
-        }
-
-        .voteDown{
-          border-top: 6px solid @borderColorLight;
-          top: 11px;
-      
-          &:hover{ border-top-color: lighter(@borderColorLight, 35%); }
-        }
-      }
-    }
-  }
+  .comment { padding-top: @magicNumber; }
 }
 
 .commentsLine{
@@ -248,11 +275,305 @@
 }
 
 /**
+ * CSS for forum-module to Chipla
+ * Made by Rasmus Berg (c) 2015-2017
+ */
+ 
+#forums, #threads {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: separate;
+  
+  td {
+    height: (@magicNumber * 2 -1px);
+    border-bottom: 1px solid @borderColorLight;
+  }
+  
+  .forum_icon, .forum_list_icon, .thread_icon {
+    .pinned  { color: @pinnedColor; }
+    .solved  { color: @markAnswerColor; }
+    .locked  { color: @lockedColor; }
+    .removed { color: @removedColor; }
+  }
+  
+  .forum_info { font-style: italic; }
+  
+  a.fa { text-decoration: none; }
+  
+  span.prio_arrow {
+    width: 15px;
+    display: inline-block;
+  }
+}
+
+#threads { margin-bottom: @magicNumber; }
+
+@media (max-width: 299px){
+  .thread_icon, .forum_icon {
+    display: none;
+  }
+}
+
+@media (max-width: 499px) {
+  .thread_published, .forum_info, .forum_access  {
+    display: none;
+  }
+}
+
+@media (max-width: 649px) {
+  .thread_posts, .forum_threads-posts  {
+    display: none;
+  }
+}
+
+@media (min-width: 650px) {
+  .forum_icon      { width: 15px; }
+  .forum_list_icon { width: 30px; }
+  .thread_icon     { width: 45px; }
+}
+
+#postForm #form_text textarea { 
+  height: @magicNumber * 5;
+}
+
+.posts {
+  margin-bottom: @magicNumber - 2px;
+  border-bottom: 2px solid @borderColorLight;
+  
+  .post {
+    margin-bottom: @magicNumber - 1px;
+    border-bottom: 1px solid @borderColorLight;
+    .clearfix();
+    
+    .postGraphic {
+      max-height: @magicNumber * 4;
+      .column(1);
+      margin-left: 0;
+      overflow: hidden;
+      
+      .postAvatar { display: inline-block; }
+    }
+
+    &:last-of-type { 
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+      
+    .postBottom {
+      min-width: 50%;
+      min-height: @magicNumber;
+    }
+    
+    &#thread {
+      margin-bottom: @magicNumber - 2px;
+      padding-bottom: @magicNumber;
+      border-bottom-width: 2px;
+      
+      .postText { float: left; }
+    }
+    
+    .hide-comment, .hide-comments { display: none; }
+    
+    .postComments {
+      width: 100%;
+      padding-top: @magicNumber;
+      display: grid;
+      float: none;
+      .box-sizing();
+      
+      #cform {
+        border-top: 1px solid @borderColorLight;
+        display: none;
+          
+        p {
+          height: (@magicNumber * 3 - 1px);
+          width: 80%;
+          margin: 0;
+          overflow: hidden;
+          display: inline-block;
+          float: left;
+        }
+        
+        textarea { 
+          height: @magicNumber * 2 + (@magicNumber - 18px);
+          width: 100%;
+          margin: 8px 0;
+        }
+        
+        .buttonbar {
+          width: 20%;
+        
+          input[type=submit] {
+            height: @magicNumber * 2 + (@magicNumber - 18px);
+            width: 100%;
+            margin: 8px 0;
+            .border-radius(0 5px 5px 0);
+            display: inline-block;
+          }
+        }
+      }
+      
+      .comments-menu {
+        width: 100%;
+        padding: @magicNumber / 2 0;
+        border-top: 1px solid @borderColorLight;
+        .font-size(0.9em);
+        line-height: @magicNumber - 1;
+        display: inline-block;
+      }
+
+      .comments {
+        padding-bottom: @magicNumber;
+        
+        .comment {
+          padding: (@magicNumber / 2)  0 (@magicNumber / 2 - 1.5px) 0;
+          .font-size(0.85em);
+          line-height: @magicNumber;
+          border-bottom: 1px solid @borderColorLight;
+          display: none;
+          
+          &:first-of-type { 
+            border-top: 1px solid @borderColorLight;
+            padding-top: (@magicNumber / 2 - 1px);
+          }
+          
+          &:nth-child(1), &:nth-child(2) { display: block !important; }
+          
+          .author, .date, .comment-actions { .font-size(0.8em); }
+          .date, .comment-actions  { color: @colorLighter; }
+        }
+      }
+    }
+  }
+}
+
+.thread-list-title {
+  padding: ((@magicNumber - 2px) / 2) 0;
+  border-bottom: 2px solid @borderColorLight;
+}
+
+/**
+ * CSS for blog-post and forum-modules to Chipla
+ * Made by Rasmus Berg (c) 2016-2017
+ */
+
+.tags {
+  width: 100%;
+  clear: both;
+  padding: 0;
+  margin: 0;
+  list-style: outside none none;
+  overflow: hidden;
+  
+  li {
+    float: left;
+    
+    .tag {
+      background: @tagBg;
+      .border-radius(3px 0 0 3px);
+      display: inline-block;
+      height: 26px;
+      line-height: 26px;
+      margin: 9px 10px 9px 0;
+      padding: 0 20px 0 23px;
+      position: relative;
+      text-decoration: none;
+      transition: color 0.2s ease 0s;
+      font-weight: 600;
+      color: @tagColor;
+      
+      &:before{
+        background: @bgWrapper;
+        .border-radius(10px);
+        box-shadow: 0 1px hsla(0, 0%, 0%, 0.25) inset;
+        content: "";
+        height: 6px;
+        left: 10px;
+        position: absolute;
+        top: 10px;
+        width: 6px;
+      }
+      
+      &:after{
+        background: @bgWrapper;
+        border-bottom: 13px solid transparent;
+        border-left: 10px solid @tagBg;
+        border-top: 13px solid transparent;
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      
+      &:hover { 
+        background: @tagHoverBg;
+        
+        &:after { border-left-color: @tagHoverBg; }
+      }
+    }
+  }
+}
+
+/**
+ * Responsive CSS for comment- and forum-modules to Chipla
+ * Made by Rasmus Berg (c) 2017
+ */
+ 
+@media (min-width: 945px) {
+  .markAnswer .markAnswerText {
+    position: relative;
+    top: -22px;
+    left: 23px;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 944px) {
+  .markAnswer {
+    text-align: right;
+    
+    .markAnswer { display: none; }
+  } 
+}
+
+@media (max-width: 500px) {
+  #commentsMenu #commentMenu, #form_avatar { display: none !important; }
+  
+  #form_text, #comments .comment .commentAvatar, #comments .comment .commentText,
+  .posts .post#thread .postAvatar, .posts .post .postGraphic, .posts .post .postText
+  {
+    .column(@columns);
+    display: inline-block;
+    clear: both;
+    float: none;
+  }
+
+  .commentAvatar, .postAvatar, .postGraphic {
+    height: @magicNumber * 2;
+    overflow: hidden;
+    
+    .avatar { 
+      height: @magicNumber * 2;
+      width: auto;
+    }
+  }
+  
+  .markAnswer {
+    width: auto;
+    height: auto;
+    display: inline;
+    vertical-align: super;
+    
+    .fa { vertical-align: super; }
+  }
+}
+
+/**
  * CSS for calender-module to Chipla
  * Made by Rasmus Berg (c) 2014-2016
  */
  
 /* Standard settings */
+
 .calender h3, .calender h2, .calender h4{
 	padding: 5px 0;
 	margin: 0px;
@@ -531,7 +852,8 @@
 }
 
 /* Mini calender */
-.mini_calender{
+
+.mini_calender {
   width: 100%;
   
   .month_label, .weeks, .calender_headers div { width: 11.11%; }
@@ -601,13 +923,20 @@ ul.dice {
 }
 
 /**
+ * Users multipages
+ */
+ 
+.avatar { .border-radius(5px); }
+
+/**
  * Users sidebar
  */
-.users-sidebar{
+ 
+.users-sidebar {
   border: 2px solid @borderColorLight;
   padding: @magicNumber - 2;
   
-  ul{
+  ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -629,21 +958,22 @@ ul.dice {
 /**
  * User profile
  */
-.users_profile{
+ 
+.users_profile {
   width: 100%;
   padding: @magicNumber / 2;
   //margin: @magicNumber / 2;
   border: 1px solid @borderColorLight;
   .box-sizing();
   
-  .users_profile_info{
+  .users_profile_info {
     font-size: 14px;
     line-height: @magicNumber;
     display: inline-block;
     padding: @magicNumber / 2 @magicNumber / 2 @magicNumber / 2 (@column-width - @gutter-width + 6px);
   }
 
-  .users_profile_avatar{
+  .users_profile_avatar {
     width: ((@column-width + @gutter-width) * 2) - 6px;
     height: @magicNumber * 7;
     padding: (@magicNumber / 2);
@@ -656,36 +986,45 @@ ul.dice {
 /**
  * Users & content list
  */
-.users-list, .content-list{
+ 
+.users-list, .content-list {
   width: 100%;
-  border-spacing: 0;
-  border-collapse: separate;
   
-  th{
-    text-align: left;
-    border-bottom: 2px solid @borderColorLight;
-    line-height: @magicNumber - 2px;
+  td a.fa { text-decoration: none; }
+  
+  @media (max-width: 399px){
+    .user_id { display: none; }
+  }
+
+  @media (max-width: 499px) {
+    .user_status, .user_state {
+      display: none;
+    }
   }
   
-  td{
-    padding: 0 (@gutter-width * 1px) 0 0;
-    
-    a.fa { text-decoration: none; }
+  @media (max-width: 599px) {
+    .user_name { display: none; }
+  }
+
+  @media (max-width: 699px) {
+    .user_points  { display: none; }
   }
 }
 
 /**
- * Content edit, add & list filter-form
+ * Content edit and add styles
  */
-.form-element-filters p:not(:first-of-type):not(.cf-desc),
-.content-list-filter p{
+ 
+.form-element-filters p:not(:first-of-type):not(.cf-desc) {
   display: inline-block;
   margin: 0 5px;
 }
 
 /**
- * Blog-posts
+ * CSS for Chipla Blog-posts module 
+ * Made by Rasmus Berg (c) 2015-2017
  */
+ 
 .blog-post {
   header {
     border-bottom: 1px solid @borderColorLight;
@@ -699,63 +1038,14 @@ ul.dice {
     }
   }
   
-  section{
+  section {
     margin-bottom: @magicNumber;
     
     &.ingress { font-style: italic; }
   }
-  
-  .tags {
-    padding: 0;
-    margin: 0;
-    list-style: outside none none;
-    overflow: hidden;
-    
-    li {
-      float: left;
-      
-      .tag {
-        background: @borderColorLight;
-        .border-radius(3px 0 0 3px);
-        display: inline-block;
-        height: 26px;
-        line-height: 26px;
-        margin: 9px 10px 9px 0;
-        padding: 0 20px 0 23px;
-        position: relative;
-        text-decoration: none;
-        transition: color 0.2s ease 0s;
-        
-        &:before{
-          background: #ffffff;
-          .border-radius(10px);
-          box-shadow: 0 1px hsla(0, 0%, 0%, 0.25) inset;
-          content: "";
-          height: 6px;
-          left: 10px;
-          position: absolute;
-          top: 10px;
-          width: 6px;
-        }
-        
-        &:after{
-          background: #ffffff;
-          border-bottom: 13px solid transparent;
-          border-left: 10px solid @borderColorLight;
-          border-top: 13px solid transparent;
-          content: "";
-          position: absolute;
-          right: 0;
-          top: 0;
-        }
-      }
-    }
-  }
 }
 
-footer.bloglinks{
-  padding-top: @magicNumber;
-}
+footer.bloglinks { padding-top: @magicNumber; }
 
 /**
  * Content page
@@ -785,6 +1075,7 @@ footer.bloglinks{
 /**
  * Admin, moderator or user action that needs to be confirm (and sometimes verification)
  */
+ 
 .confirm-action{
   padding: @magicNumber - 1;
   text-align: center;

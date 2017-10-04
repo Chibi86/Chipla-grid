@@ -51,17 +51,23 @@ How to use this theme:
 
 ### For CHIPLA MVC or Anax-MVC
 
-Add everything to server/project root, except all single files under root (readme.md, license etc) and webroot (index.html, favicon.png etc.)
+1. Add everything to server/project root, except all single files under root (readme.md, license etc) and webroot (index.html, favicon.png etc.)
 
-For adding theme as using theme you need to change to "chipla-grid" as theme name settings, you find it under 'app/config/' and file you us as theme config-file at start "theme.php" can also be "theme-me.php" or "theme-grid.php".
-If you don't know which one check in `webroot/index.php`, should be somewhere in top of that file.
+2. For adding theme as using theme ju need to add or change theme configure line to `$app->theme->configure(ANAX_APP_PATH . 'config/theme-grid.php');` in your frontcontroller.
 
-Also follow instruction to get lessphp to work.
+3. Also follow instruction to get lessphp to work.
 
-### For standalone version
+### For standalone php version
 
-If you use php for your project it's only to add everything from webroot path to your webroot path, otherwish you need to change line 7 in index.html from style.php to style.css.
-Also follow instruction to get lessphp to work if you use php in your project.
+1. Add everything from webroot path to your webroot path.
+
+2. Follow instruction to get lessphp to work if you use php in your project.
+
+### For standalone html version
+
+1. Add everything from webroot path to your webroot path.
+
+2. Change line 7 in index.html from style.php to style.css.
 
 ### How to get lessphp to work
 
@@ -69,6 +75,27 @@ Set (writable) CMOD 777 on path `css/chipla-grid/`.
  
 History
 -------
+
+### v0.3.0 (2017-10-04)
+
+* Added: Design for Forum
+
+* Added: Design for Usermenu
+
+* Added: Design for Breadcrumb
+
+* Added: Design for Paging
+
+* Added: Theme config file for Chipla-MVC or Anax-MVC
+
+* Added: Readonly and disabled design for form
+
+* Edit: Alot rebuild/redesign for better responsive design
+
+* Delete: Font Awesome 4.6.3 files (Deprecated since v0.2.0)
+
+* Update: Install instructions, easier and follow the use of added config file
+
 
 ### v0.2.0 (2016-11-19)
 
@@ -82,19 +109,22 @@ History
  
  * Add content, page and blog pages layout
  
- * Add layout for flashmessages use for [Flashmessages-AnaxMVC](https://github.com/davedoff/Flashmessages-AnaxMVC)
+ * Add layout for [Flashmessages-AnaxMVC](https://github.com/davedoff/Flashmessages-AnaxMVC)
  
  * Much more...
+ 
 
 ### v0.1.1 (2016-09-09)
 
  * Add missing path's and files for Anax MVC / Chipla-MVC.
  
  * Readme: Correction in install instructions.
+ 
 
 ### v0.1.0 (2016-09-02)
 
  * First stable version
+ 
  
 ```
 Copyright (c) 2016 Rasmus Berg, rasmus.berg@chibidesign.se

@@ -32,7 +32,7 @@ h1 {
   text-transform: uppercase;
   
   & ~ h2, & ~ h3, & ~ h4, & ~ h5, & ~ h6 {
-    margin-top:   @magicNumber * 2;
+    margin-top: @magicNumber;
   }
 }
 
@@ -228,8 +228,6 @@ dl.dl-horizontal {
 article table, .table {
   width: 100%;
   margin-bottom: @magicNumber;
-  border-spacing: 0;
-  border-collapse: collapse;
 }
 
 article caption, .table  caption { 
@@ -241,7 +239,7 @@ article thead, .table  thead {
   border-bottom: 2px solid @borderColorTableHeader;
 }
 
-article th, .table  th { 
+article th, .table th { 
   vertical-align: bottom;
   font-weight: bold;
   text-align: left;
@@ -275,8 +273,31 @@ article tfoot, .table  tfoot {
 }
 
 /**
+ * Regulare table
+ */
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+ 
+th { 
+  line-height: @magicNumber - 2px;
+  border-bottom: 2px solid @borderColorLight;
+  text-align: left;
+}
+
+td {
+  padding: 0 (@gutter-width * 1px) 0 0;
+}
+
+/**
  * More
  */
+
+.missing-values { 
+  padding: @magicNumber 0;
+  text-align: center;
+}
  
 hr {
   color: @borderColorLight;  
@@ -287,7 +308,7 @@ hr {
 /**
  * Siteparts
  */
-
+ 
 .sitetitle {
   font-size: @fontSizeSiteTitle;
   font-family: @fontFamilySiteTitle;
@@ -301,6 +322,19 @@ hr {
 }
 
 .sitefooter { color: @colorLighter; }
+
+#breadcrumb {
+  ul li span:after {
+    content: "\f061";
+    font-family: FontAwesome;
+    color: @bread-start-color;
+  }
+  ul ul li span:after { color: lighten(@bread-start-color, 10%); }
+  ul ul ul li span:after { color: lighten(@bread-start-color, 20%); }
+  ul ul ul ul li span:after { color: lighten(@bread-start-color, 30%); }
+  ul ul ul ul ul li span:after { color: lighten(@bread-start-color, 40%); }
+  ul ul li.last span { color: @bread-last-color; }
+}
 
 
 /**

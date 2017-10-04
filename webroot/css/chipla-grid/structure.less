@@ -42,6 +42,7 @@ body {
 #header,
 #navbar,
 #page-title,
+#breadcrumb,
 #flash,
 #footer{
   .column(@columns);
@@ -55,18 +56,13 @@ body {
 	position: relative;
 }
 
-.sitelogo{
-  margin: -15px 0 0 -7px;
+.sitelogo {
+  max-height: 130px;
+  margin: -25px 0 0 -2px;
   vertical-align: text-top;
 }
 
-.sitetitle {
-	display: inline-block;
-}
-
-#navbar{
-  margin-bottom: @magicNumber;
-}
+.sitetitle { display: inline-block; }
 
 /**
  * Flash, Featured, main, sidebar, triptych, footer-col and footer layout
@@ -74,6 +70,33 @@ body {
 
 #wrap-featured, #wrap-main, #wrap-triptych, #wrap-footer-col, #wrap-footer {
   .clearfix();
+}
+ 
+/**
+ * Layout for breadcrumb
+ */
+ 
+#breadcrumb {
+	display: block;
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    list-style: none;
+    
+    li { 
+      float: left;
+      
+      span {
+        display: block;
+        
+        &:after { display: inline-block; }
+      }
+      
+      &.last span:after { display: none; }
+    }
+  }
 }
  
 // Layout for main and sidebar
@@ -98,6 +121,10 @@ body {
   min-height: @magicNumber * 14;
 }
 
+/**
+ * Flash messages
+ */
+ 
 .flashmessage {
   clear: all;
 	margin-bottom: @magicNumber - 2px;
@@ -106,7 +133,54 @@ body {
   cursor: pointer;
 }
 
-// Layout for footer
+/**
+ * Edit, add & list filter-form
+ */
+ 
+.list-filter p {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+/**
+ * Paging navigation
+ */
+ 
+.paging{
+  text-align: center;
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li {
+      display: inline-block;
+      
+      a {
+        margin: (@magicNumber / 2 - 6) 0;
+        padding: 5px 10px;
+        display: inline-block;
+        border: solid 1px @paging-border;
+        .border-radius(5px);
+        color: @paging-color;
+        text-decoration: none;
+        background: @paging-bg;
+      }
+      
+      &.active a{
+        background: @paging-bg-active;
+        text-decoration: underline;
+      }
+      
+      &:hover a {  background: @paging-bg-hover; }
+    }
+  }
+}
+
+/**
+ * Layout for footer
+ */
 
 #wrap-footer{
   padding-top: @magicNumber - 1px;
@@ -116,7 +190,7 @@ body {
 
 // Padding and margin for every base elements in main-space under header 
 
-#flash, #main, #sidebar, #footer,
+#flash, #breadcrumb, #main, #sidebar, #footer,
 #featured-1, #featured-2, #featured-3,
 #triptych-1, #triptych-2, #triptych-3,
 #footer-col-1, #footer-col-2, #footer-col-3, #footer-col-4{

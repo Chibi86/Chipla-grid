@@ -15,18 +15,33 @@ input[type=text], input[type=number], input[type=email], input[type=password]{
   width: (@column-width * 4) + (@gutter-width * 2) * 1px;
   height: @magicNumber + 6px;
   margin: ((@magicNumber - 6px) / 2) 0;
-  border: 1px solid @input-border;
+  border: 1px solid @inputBorder;
+  
+  &[readonly]{
+    background: @inputDisabledBg;
+    border-color: @inputDisabledBorder;
+  }
 }
 
 input[type=checkbox]{
-  border: 1px solid @input-border;
+  border: 1px solid @inputBorder;
+  
+  &[readonly]{
+    background: @inputDisabledBg;
+    border-color: @inputDisabledBorder;
+  }
 }
 
 textarea{
   width: (@column-width * 7) + (@gutter-width * 5) * 1px;
   height: @magicNumber * 5 + 5px;
   margin: ((@magicNumber - 6px) / 2) 0;
-  border: 1px solid @input-border;
+  border: 1px solid @inputBorder;
+  
+  &[readonly]{
+    background: @inputDisabledBg;
+    border-color: @inputDisabledBorder;
+  }
 }
 
 input, textarea{
@@ -44,6 +59,13 @@ input[type=button], input[type=submit]{
   .border-radius(5px);
   background: @btnBg;
   color: @btnColor;
+  
+  &[disabled=disabled]{ 
+    &, &:hover, &:active{ 
+      background: @btnDisabledBg;
+      border-color: @btnDisabledBorder;
+    }
+  }
   
   &:hover{
     background: @btnBgHover;

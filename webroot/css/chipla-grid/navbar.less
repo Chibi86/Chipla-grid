@@ -4,33 +4,22 @@
  * Based on http://dbwebb.se/coachen/en-navbar-med-drop-down-meny-i-ren-html-och-css          *
  **********************************************************************************************/
  
-@media (min-width: 533px){
-  .navbar ul { padding: @magicNumber / 3.38; }
-}
-
-@media (max-width: 532px){
-  .navbar ul { padding: @magicNumber / 1.69; }
-}
- 
 .navbar {
 	
+  &, ul ul { padding: @magicNumber / 3.38; }
+  
 	ul {
-		background: @navbarColor1;
-		.border-radius(5px);
 		list-style: none;
 		margin: 0;
+    padding: 0;
+    display: inline-block;
 	
     li {
-      color: @navbarColor2;
       display: inline-block;
       position: relative;
       cursor: pointer;
       
-      &.selected-parent, &.selected { 
-        border-bottom: 2px solid @navbarColor2;
-        
-        a { padding-bottom: 3px; }
-      }
+      &.selected-parent, &.selected { border-bottom: 2px solid @navbarColor2; }
       
       .fa{
         margin-right: 5px;
@@ -58,7 +47,7 @@
       &:hover ul, &:active ul, ul:hover{
         height: auto;
         .border-radius(0 5px 5px);
-        border: solid @navbarColor1;
+        border-style: solid;
         border-width: 0 1px 1px;
         padding: 7px;
         .transition-delay(0s);
@@ -69,11 +58,7 @@
         color: @navbarColor1;
         display: block;
         
-        &:hover {
-          background-color: @navbarColor1;
-          .border-radius(5px);
-          color: @navbarColor2;
-        }
+        &:hover { .border-radius(5px); }
         
         a, &.selected a{
           .font-size(0.9em);
@@ -96,4 +81,80 @@
 		white-space: nowrap;
 		width: 100%;
 	}
+}
+
+#navbar {
+  margin-bottom: @magicNumber;
+  .border-radius(5px);
+  background: @navbarColor1;
+  
+  .navbar {
+    ul {
+      li {
+        color: @navbarColor2;
+        
+        &.selected-parent, &.selected { border-bottom: 2px solid @navbarColor2; }
+        
+        &:hover {
+          background-color: @navbarColor2;
+          color: @navbarColor1;
+        }
+        
+        ul { background-color: @navbarColor2; }
+        
+        &:hover ul, &:active ul, ul:hover{ 
+          border-color: @navbarColor1;
+        }
+        
+        li {
+          color: @navbarColor1;
+          
+          &:hover {
+            background-color: @navbarColor1;
+            color: @navbarColor2;
+          }
+        }
+      }
+    }
+  }
+}
+
+#usermenu {
+  background: @usermenuColor1;
+  
+  .usermenuAvatar { 
+    vertical-align: middle;
+    margin: 0 2px 1.5px 3px;
+  }
+  
+  .navbar {
+    padding-top: 5.5px !important;
+    padding-bottom: 5.5px !important;
+    
+    ul {
+      li {
+        color: @usermenuColor2;
+        
+        &.selected-parent, &.selected { border-bottom: 2px solid @usermenuColor2; }
+        
+        &:hover {
+          background-color: @usermenuColor2;
+          color: @usermenuColor1;
+        }
+        
+        ul { background-color: @usermenuColor2; }
+        
+        &:hover ul, &:active ul, ul:hover { border-color: @usermenuColor1; }
+        
+        li {
+          color: @navbarColor1;
+          
+          &:hover {
+            background-color: @usermenuColor1;
+            color: @usermenuColor2;
+          }
+        }
+      }
+    }
+  }
 }
