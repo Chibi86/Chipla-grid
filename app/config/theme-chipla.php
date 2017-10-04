@@ -49,6 +49,7 @@ return [
         'lang' => 'en',
 
         // Append this value to each <title>
+        'title_append' => ' | Chipla grid web template',
 
         // Stylesheets
         'stylesheets' => ['css/chipla-grid/style.php'],
